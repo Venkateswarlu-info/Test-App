@@ -1,10 +1,11 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::middleware([
     'auth:sanctum',
@@ -15,3 +16,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+// Route::get('/','UserController@index')->name('first-page');
+
+Route::get('/',[UserController::class,'index']);
